@@ -52,15 +52,15 @@ nav a:hover::after{width:100%}
 .hero-bg{position:absolute;inset:0;background:url('bg-hero.jpg') center center / cover no-repeat}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.15) 35%,transparent 60%)}
 .hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;padding:140px 0 100px;text-align:left}
-.hero-content{max-width:520px;padding-left:6%}
-.hero-sub{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--purple-light);margin-bottom:20px;font-weight:500}
-.hero h1{font-size:clamp(48px,7vw,80px);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:20px;text-shadow:0 4px 24px rgba(0,0,0,0.3);letter-spacing:-0.02em}
+.hero-content{max-width:620px;padding-left:6%}
+.hero-sub{font-size:16px;letter-spacing:5px;text-transform:uppercase;color:var(--purple-light);margin-bottom:24px;font-weight:500}
+.hero h1{font-size:clamp(64px,10vw,112px);font-weight:300;line-height:1.0;color:var(--white);margin-bottom:28px;text-shadow:0 4px 32px rgba(0,0,0,0.35);letter-spacing:-0.02em}
 .hero h1 strong{font-weight:700;color:var(--white)}
-.hero p{font-size:16px;color:rgba(255,255,255,0.6);max-width:420px;line-height:1.7;margin:0}
-.hero-stats{display:flex;gap:36px;justify-content:flex-start}
+.hero p{font-size:22px;color:rgba(255,255,255,0.55);max-width:520px;line-height:1.6;margin:0}
+.hero-stats{display:flex;gap:48px;justify-content:flex-start;margin-top:8px}
 .hero-stats .item{text-align:center}
-.hero-stats .num{font-size:28px;font-weight:700;color:var(--white)}
-.hero-stats .lbl{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:2px;margin-top:4px}
+.hero-stats .num{font-size:38px;font-weight:700;color:var(--white)}
+.hero-stats .lbl{font-size:13px;color:rgba(255,255,255,0.35);letter-spacing:2px;margin-top:6px}
 
 .section{padding:100px 48px;max-width:1400px;margin:0 auto}
 .section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--purple);margin-bottom:8px;font-weight:600}
@@ -85,11 +85,11 @@ nav a:hover::after{width:100%}
 .grid-item.hidden{display:none}
 
 /* Contact */
-.contact-qr{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:32px}
-.qr-item{text-align:center;width:140px}
-.qr-item img{width:120px;height:120px;border-radius:12px;object-fit:cover;border:1px solid var(--gray-100);padding:8px;background:var(--white);transition:var(--transition)}
+.contact-qr{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.qr-item{text-align:center;width:180px}
+.qr-item img{width:160px;height:160px;border-radius:12px;object-fit:cover;border:1px solid var(--gray-100);padding:8px;background:var(--white);transition:var(--transition)}
 .qr-item img:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
-.qr-item .qr-label{font-size:12px;color:var(--gray-600);margin-top:8px}
+.qr-item .qr-label{font-size:13px;color:var(--gray-600);margin-top:8px;letter-spacing:1px}
 
 .lightbox{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:var(--transition);backdrop-filter:blur(24px)}
 .lightbox.open{opacity:1;pointer-events:auto}
@@ -184,7 +184,7 @@ footer em{color:var(--purple);font-style:normal}
 
 <script>
 const works = [
-  ...Array.from({length:35},(_,i)=>i+1).map(i=>({folder:"医美案例",name:`医美案例 (${i}).jpg`})),
+  ...Array.from({length:35},(_,i)=>i+2).map(i=>({folder:"医美案例",name:`医美案例 (${i}).jpg`})),
   {folder:"医美案例",name:"医美案例 (1).png"},
   ...Array.from({length:4},(_,i)=>i+1).map(i=>({folder:"医药案例",name:`医药案例 (${i}).jpg`})),
   ...Array.from({length:35},(_,i)=>i+1).map(i=>({folder:"海报案例",name:`海报案例 (${i}).jpg`})),
