@@ -194,15 +194,18 @@ const works = [
   ...Array.from({length:4},(_,i)=>i+1).map(i=>({folder:"医药案例",name:`医药案例 (${i}).jpg`})),
   ...Array.from({length:35},(_,i)=>i+1).map(i=>({folder:"海报案例",name:`海报案例 (${i}).jpg`})),
 ];
+// Filtered flat list for lightbox navigation
+let filteredWorks=[];let currentIdx=0;
 
 const grid=document.getElementById('grid');let currentFilter="医美案例";
 function renderWorks(filter){
   grid.innerHTML='';
-  works.filter(w=>w.folder===filter).forEach(w=>{
+  filteredWorks=works.filter(w=>w.folder===filter);
+  filteredWorks.forEach((w,i)=>{
     const el=document.createElement('div');el.className='grid-item visible';
     const p=`${w.folder}/${encodeURIComponent(w.name)}`;
     el.innerHTML=`<img src="${p}" alt="${w.name}" loading="lazy"><div class="info"><div class="tag">${w.folder}</div><h3>${w.name.replace(/\.(jpg|png)$/,'')}</h3><div class="date">2026</div></div>`;
-    el.addEventListener('click',()=>openLightbox(p,w.name));grid.appendChild(el);
+    el.addEventListener('click',()=>openLightbox(i));grid.appendChild(el);
   });
 }
 document.querySelectorAll('.filter-btn').forEach(btn=>{
@@ -212,10 +215,36 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
   });
 });
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCaption=document.getElementById('lbCaption');
-function openLightbox(p,t){lb.classList.add('open');lbImg.src=p;lbCaption.textContent=t;document.body.style.overflow='hidden'}
+function openLightbox(idx){
+  currentIdx=idx;
+  const w=filteredWorks[idx];
+  const p=`${w.folder}/${encodeURIComponent(w.name)}`;
+  lb.classList.add('open');lbImg.src=p;lbCaption.textContent=w.name.replace(/\.(jpg|png)$/,'');
+  document.body.style.overflow='hidden'
+}
+function navLightbox(dir){
+  const n=filteredWorks.length;
+  currentIdx=((currentIdx+dir)%n+n)%n;
+  const w=filteredWorks[currentIdx];
+  lbImg.src=`${w.folder}/${encodeURIComponent(w.name)}`;
+  lbCaption.textContent=w.name.replace(/\.(jpg|png)$/,'')
+}
 document.getElementById('lbClose').addEventListener('click',()=>{lb.classList.remove('open');document.body.style.overflow=''});
-lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('open');document.body.style.overflow=''}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){lb.classList.remove('open');document.body.style.overflow=''}});
+lb.addEventListener('click',e=>{
+  if(e.target===lb){
+    const rect=lb.getBoundingClientRect();
+    const x=e.clientX-rect.left;
+    if(x<rect.width*0.3)navLightbox(-1);
+    else if(x>rect.width*0.7)navLightbox(1);
+    else{lb.classList.remove('open');document.body.style.overflow=''}
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape'){lb.classList.remove('open');document.body.style.overflow=''}
+  if(e.key==='ArrowLeft')navLightbox(-1);
+  if(e.key==='ArrowRight')navLightbox(1)
+});
 window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>50)});
 document.getElementById('totalWorks').textContent=works.length;
 renderWorks("医美案例");
