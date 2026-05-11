@@ -15,7 +15,6 @@ body{
   --purple:#7C3AED;
   --purple-light:#A78BFA;
   --purple-dark:#5B21B6;
-  --purple-glow:rgba(124,58,237,0.15);
   --black:#1A1A1A;
   --gray-900:#2D2D2D;
   --gray-600:#6B6B6B;
@@ -34,78 +33,60 @@ header{
   transition:var(--transition);background:transparent
 }
 header.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);padding:14px 48px;box-shadow:0 1px 0 var(--gray-100)}
-.logo{font-size:22px;font-weight:700;letter-spacing:3px;color:var(--black);text-decoration:none}
-.logo span{color:var(--purple)}
+.logo{font-size:22px;font-weight:700;letter-spacing:3px;color:var(--white);text-decoration:none;text-shadow:0 2px 12px rgba(0,0,0,0.3)}
+.logo span{color:var(--purple-light)}
+header.scrolled .logo{color:var(--black);text-shadow:none}
+header.scrolled .logo span{color:var(--purple)}
 nav{display:flex;gap:36px}
 nav a{
   font-size:13px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--gray-600);text-decoration:none;transition:var(--transition);
-  position:relative;padding-bottom:4px
+  color:rgba(255,255,255,0.7);text-decoration:none;transition:var(--transition);
+  position:relative;padding-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,0.2)
 }
 nav a::after{
   content:'';position:absolute;bottom:0;left:0;
-  width:0;height:2px;background:var(--purple);transition:var(--transition)
+  width:0;height:2px;background:var(--purple-light);transition:var(--transition)
 }
-nav a:hover{color:var(--black)}
+header.scrolled nav a{color:var(--gray-600);text-shadow:none}
+header.scrolled nav a::after{background:var(--purple)}
+nav a:hover{color:var(--white)}
+header.scrolled nav a:hover{color:var(--black)}
 nav a:hover::after{width:100%}
 
 /* ── Hero ── */
+.hero-wrap{
+  position:relative;min-height:100vh;overflow:hidden
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('bg-hero.jpg') center center / cover no-repeat;
+  filter:blur(6px) brightness(0.7);
+  transform:scale(1.05)
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 50%,rgba(250,250,250,0.95) 100%)
+}
 .hero{
+  position:relative;z-index:1;
   min-height:100vh;display:flex;align-items:center;
-  padding:140px 48px 60px;position:relative;overflow:hidden;
-  background:linear-gradient(135deg,#FAFAFA 0%,#F0EDF5 50%,#E8E0F5 100%)
+  padding:140px 48px 100px
 }
-.hero-grid{
-  position:absolute;top:0;left:0;right:0;bottom:0;
-  background-image:
-    linear-gradient(rgba(124,58,237,0.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(124,58,237,0.03) 1px,transparent 1px);
-  background-size:60px 60px;pointer-events:none
-}
-.hero::before{
-  content:'';position:absolute;top:-40%;right:-15%;
-  width:55%;height:140%;
-  background:radial-gradient(ellipse at center,rgba(124,58,237,0.08) 0%,transparent 70%);
-  pointer-events:none
-}
-.hero::after{
-  content:'';position:absolute;bottom:-30%;left:-10%;
-  width:45%;height:100%;
-  background:radial-gradient(ellipse at center,rgba(124,58,237,0.05) 0%,transparent 70%);
-  pointer-events:none
-}
-.hero-content{position:relative;z-index:1;max-width:640px}
+.hero-content{max-width:640px}
 .hero-sub{
   font-size:12px;letter-spacing:4px;text-transform:uppercase;
-  color:var(--purple);margin-bottom:20px;font-weight:600
+  color:var(--purple-light);margin-bottom:20px;font-weight:600
 }
 .hero h1{
   font-size:clamp(42px,6vw,72px);font-weight:300;line-height:1.05;
-  color:var(--black);margin-bottom:20px
+  color:var(--white);margin-bottom:20px;text-shadow:0 4px 24px rgba(0,0,0,0.3)
 }
-.hero h1 strong{font-weight:700;color:var(--purple)}
-.hero p{font-size:16px;color:var(--gray-600);max-width:480px;line-height:1.8;margin-bottom:40px}
+.hero h1 strong{font-weight:700;color:var(--white)}
+.hero p{font-size:16px;color:rgba(255,255,255,0.7);max-width:480px;line-height:1.8;margin-bottom:40px;text-shadow:0 2px 12px rgba(0,0,0,0.2)}
 .hero-stats{display:flex;gap:40px}
 .hero-stats .item{text-align:center}
-.hero-stats .num{font-size:28px;font-weight:700;color:var(--purple)}
-.hero-stats .lbl{font-size:12px;color:var(--gray-300);letter-spacing:1px;margin-top:4px}
-
-/* ── Hero image ── */
-.hero-image{
-  position:absolute;right:5%;top:50%;transform:translateY(-50%);
-  width:38%;height:70%;border-radius:24px;overflow:hidden;
-  background:linear-gradient(135deg,var(--purple-dark),var(--purple));
-  display:flex;align-items:center;justify-content:center;
-  opacity:0.9
-}
-.hero-image::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.4) 100%)
-}
-.hero-image .placeholder{
-  color:rgba(255,255,255,0.3);font-size:14px;letter-spacing:2px;
-  text-align:center;padding:40px
-}
+.hero-stats .num{font-size:28px;font-weight:700;color:var(--white)}
+.hero-stats .lbl{font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:1px;margin-top:4px}
 
 /* ── Section ── */
 .section{padding:100px 48px;max-width:1400px;margin:0 auto}
@@ -180,10 +161,9 @@ footer em{color:var(--purple);font-style:normal}
   header.scrolled{padding:10px 20px}
   nav{gap:16px;flex-wrap:wrap;justify-content:center}
   nav a{font-size:11px}
-  .hero{padding:120px 20px 40px;min-height:auto}
+  .hero{padding:120px 20px 80px;min-height:auto}
   .hero h1{font-size:34px}
   .hero-stats{gap:24px;flex-wrap:wrap}
-  .hero-image{display:none}
   .section{padding:60px 20px}
   .grid{grid-template-columns:1fr}
 }
@@ -200,23 +180,22 @@ footer em{color:var(--purple);font-style:normal}
   </nav>
 </header>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-sub">Product &amp; Packaging Portfolio</div>
-    <h1>Design with<br><strong>intention.</strong></h1>
-    <p>专注于医美与医药领域的包装与视觉设计。<br>在美学与商业之间，寻找最精准的表达。</p>
-    <div class="hero-stats">
-      <div class="item"><div class="num" id="totalWorks">0</div><div class="lbl">作品</div></div>
-      <div class="item"><div class="num">3</div><div class="lbl">品类</div></div>
-      <div class="item"><div class="num">∞</div><div class="lbl">创意</div></div>
+<!-- Hero with blurred bg -->
+<div class="hero-wrap">
+  <div class="hero-bg"></div>
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-sub">Product &amp; Packaging Portfolio</div>
+      <h1>Design with<br><strong>intention.</strong></h1>
+      <p>专注于医美与医药领域的包装与视觉设计。在美学与商业之间，寻找最精准的表达。</p>
+      <div class="hero-stats">
+        <div class="item"><div class="num" id="totalWorks">0</div><div class="lbl">作品</div></div>
+        <div class="item"><div class="num">3</div><div class="lbl">品类</div></div>
+        <div class="item"><div class="num">∞</div><div class="lbl">创意</div></div>
+      </div>
     </div>
   </div>
-  <div class="hero-image">
-    <div class="placeholder">✦ Medical Aesthetics ✦</div>
-  </div>
-</section>
+</div>
 
 <!-- Works -->
 <section class="section" id="works">
@@ -259,14 +238,10 @@ footer em{color:var(--purple);font-style:normal}
 </div>
 
 <script>
-const CATEGORIES = ["医美案例","医药案例","海报案例"];
 const works = [
-  // 医美案例
   ...Array.from({length:24},(_,i)=>i+1).map(i=>({folder:"医美案例",name:`医美案例 (${i}).jpg`})),
   {folder:"医美案例",name:"医美案例 (1).png"},
-  // 医药案例
   ...Array.from({length:4},(_,i)=>i+1).map(i=>({folder:"医药案例",name:`医药案例 (${i}).jpg`})),
-  // 海报案例
   ...Array.from({length:35},(_,i)=>i+1).map(i=>({folder:"海报案例",name:`海报案例 (${i}).jpg`})),
 ];
 
