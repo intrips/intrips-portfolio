@@ -252,7 +252,7 @@ function renderWorks(filter){
   filteredWorks.forEach((w,i)=>{
     const el=document.createElement("div");el.className="grid-item visible";
     const p=`${w.folder}/${encodeURIComponent(w.name)}`;
-    el.innerHTML=`<img src="${p}" alt="" loading="lazy"><div class="info"><div class="tag">${w.folder}</div><h3>${w.name.replace(/\.(jpg|png)$/,"")}</h3><div class="date">2026</div></div>`;
+    el.innerHTML=`<img src="${p}" alt="" loading="lazy"><div class="info"><h3>${w.name.replace(/\.(jpg|png)$/,"").replace(/^(医美案例|医药案例|海报案例)\s*/,"")}</h3></div>`;
     el.addEventListener("click",()=>openLightbox(i));grid.appendChild(el);
   });
 }
