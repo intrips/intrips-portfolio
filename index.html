@@ -1,67 +1,39 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INTRIPS_ · 作品集</title>
+<title>INTRIPS_ · Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <script>
 var _hmt = _hmt || [];
-(function() {
- var hm = document.createElement("script");
- hm.src = "https://hm.baidu.com/hm.js?d617f3115b809a2e7b06fd1d283eb9b6";
- var s = document.getElementsByTagName("script")[0];
- s.parentNode.insertBefore(hm, s);
-})();
+(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?d617f3115b809a2e7b06fd1d283eb9b6";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();
 </script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
-  background:#FAFAFA;color:#1A1A1A;overflow-x:hidden;line-height:1.6
-}
-:root{
-  --purple:#7C3AED;
-  --purple-light:#A78BFA;
-  --purple-dark:#5B21B6;
-  --black:#1A1A1A;
-  --gray-600:#6B6B6B;
-  --gray-300:#B8B8B8;
-  --gray-100:#E8E8E8;
-  --white:#FFFFFF;
-  --shadow:0 4px 24px rgba(0,0,0,0.04);
-  --shadow-hover:0 12px 48px rgba(0,0,0,0.08);
-  --radius:16px;
-  --transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)
-}
-header{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  padding:18px 48px;display:flex;justify-content:space-between;align-items:center;
-  transition:var(--transition);
-  background:linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.25) 70%,transparent 100%)
-}
-header.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);padding:14px 48px;box-shadow:0 1px 0 var(--gray-100)}
+body{font-family:"Inter","Noto Sans SC","PingFang SC",sans-serif;background:#FAFAFA;color:#1A1A1A;overflow-x:hidden;line-height:1.6}
+:root{--purple:#7C3AED;--purple-light:#A78BFA;--purple-dark:#5B21B6;--black:#1A1A1A;--gray-600:#6B6B6B;--gray-300:#B8B8B8;--gray-100:#E8E8E8;--white:#FFFFFF;--shadow:0 4px 24px rgba(0,0,0,0.04);--shadow-hover:0 12px 48px rgba(0,0,0,0.08);--radius:16px;--transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 48px;display:flex;justify-content:space-between;align-items:center;transition:var(--transition);background:linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.25) 70%,transparent 100%)}
 header.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);padding:14px 48px;box-shadow:0 1px 0 var(--gray-100)}
 .logo{font-size:22px;font-weight:700;letter-spacing:3px;color:var(--white);text-decoration:none;text-shadow:0 2px 12px rgba(0,0,0,0.3)}
 .logo span{color:var(--purple-light)}
 header.scrolled .logo{color:var(--black);text-shadow:none}
 header.scrolled .logo span{color:var(--purple)}
-nav{display:flex;gap:36px}
-nav a{
-  font-size:13px;letter-spacing:2px;text-transform:uppercase;
-  color:rgba(255,255,255,0.7);text-decoration:none;transition:var(--transition);
-  position:relative;padding-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,0.2)
-}
+nav{display:flex;gap:36px;align-items:center}
+nav a{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;transition:var(--transition);position:relative;padding-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,0.2)}
 nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--purple-light);transition:var(--transition)}
 header.scrolled nav a{color:var(--gray-600);text-shadow:none}
 header.scrolled nav a::after{background:var(--purple)}
 nav a:hover{color:var(--white)}
 header.scrolled nav a:hover{color:var(--black)}
 nav a:hover::after{width:100%}
-
+.lang-toggle{font-size:11px;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);padding:5px 14px;border-radius:20px;cursor:pointer;transition:var(--transition);font-family:inherit;text-shadow:0 1px 4px rgba(0,0,0,0.2)}
+.lang-toggle:hover{background:rgba(255,255,255,0.25);color:var(--white)}
+header.scrolled .lang-toggle{background:var(--gray-100);border-color:var(--gray-300);color:var(--gray-600);text-shadow:none}
+header.scrolled .lang-toggle:hover{background:var(--purple);border-color:var(--purple);color:var(--white)}
 .hero-wrap{position:relative;min-height:100vh;overflow:hidden}
 img{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;pointer-events:auto}
 .lightbox img{pointer-events:none}
@@ -77,17 +49,14 @@ img{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;pointer
 .hero-stats .item{text-align:center}
 .hero-stats .num{font-size:38px;font-weight:700;color:var(--white)}
 .hero-stats .lbl{font-size:13px;color:rgba(255,255,255,0.35);letter-spacing:2px;margin-top:6px}
-
 .section{padding:100px 48px;max-width:1400px;margin:0 auto;text-align:center}
 .section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--purple);margin-bottom:8px;font-weight:600}
 .section-title{font-size:32px;font-weight:500;color:var(--black);margin-bottom:8px}
 .section-desc{font-size:15px;color:var(--gray-600);max-width:480px;margin:0 auto 40px;line-height:1.8}
-
 .filter-bar{display:flex;gap:8px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--gray-100);justify-content:center}
 .filter-btn{padding:10px 28px;border-radius:100px;border:1px solid var(--gray-100);background:var(--white);font-size:13px;color:var(--gray-600);cursor:pointer;transition:var(--transition);font-family:inherit;font-weight:500}
 .filter-btn:hover{border-color:var(--purple-light);color:var(--purple)}
 .filter-btn.active{background:var(--purple);border-color:var(--purple);color:var(--white)}
-
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
 .grid-item{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--white);box-shadow:var(--shadow);transition:var(--transition);cursor:pointer;opacity:0;transform:translateY(24px)}
 .grid-item.visible{opacity:1;transform:translateY(0)}
@@ -99,14 +68,11 @@ img{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;pointer
 .grid-item .info h3{font-size:15px;font-weight:500;color:var(--black);margin-bottom:2px}
 .grid-item .info .date{font-size:12px;color:var(--gray-300)}
 .grid-item.hidden{display:none}
-
-/* Contact */
 .contact-qr{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-top:32px}
 .qr-item{text-align:center;width:180px}
 .qr-item img{width:160px;height:160px;border-radius:12px;object-fit:cover;border:1px solid var(--gray-100);padding:8px;background:var(--white);transition:var(--transition)}
 .qr-item img:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
 .qr-item .qr-label{font-size:13px;color:var(--gray-600);margin-top:8px;letter-spacing:1px}
-
 .lightbox{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:var(--transition);backdrop-filter:blur(24px)}
 .lightbox.open{opacity:1;pointer-events:auto}
 .lightbox img{max-width:90vw;max-height:85vh;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,0.5);transform:scale(0.92);transition:var(--transition)}
@@ -114,16 +80,15 @@ img{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;pointer
 .lightbox .close{position:absolute;top:24px;right:32px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;opacity:0.5;transition:var(--transition)}
 .lightbox .close:hover{opacity:1}
 .lightbox .caption{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:13px;text-align:center}
-
 footer{text-align:center;padding:48px;border-top:1px solid var(--gray-100);color:var(--gray-300);font-size:13px}
 footer em{color:var(--purple);font-style:normal}
-
 @media(max-width:768px){
   header{padding:14px 20px;flex-direction:row;gap:8px}
   header.scrolled{padding:10px 20px}
   .logo{font-size:17px;letter-spacing:1px}
-  nav{gap:14px}
+  nav{gap:10px}
   nav a{font-size:10px;letter-spacing:1px}
+  .lang-toggle{font-size:9px;padding:4px 10px}
   .hero-wrap{min-height:80vh}
   .hero{padding:100px 20px 60px;min-height:80vh;align-items:center;justify-content:center;text-align:center}
   .hero-content{padding-left:0;max-width:100%}
@@ -154,41 +119,46 @@ footer em{color:var(--purple);font-style:normal}
 
 <header id="header">
   <a href="#" class="logo">INTRIPS<span>_</span></a>
-  <nav><a href="#works">Works</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <nav>
+    <a href="#works" data-i18n="nav_works">Works</a>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+    <button class="lang-toggle" id="langToggle">中</button>
+  </nav>
 </header>
 
 <div class="hero-wrap">
   <div class="hero-bg"></div>
   <div class="hero">
     <div class="hero-content">
-      <div class="hero-sub">Product &amp; Packaging Portfolio</div>
+      <div class="hero-sub" data-i18n="hero_sub">Product &amp; Packaging Portfolio</div>
       <h1>Design with <strong>intention</strong></h1>
-      <p>专注于医美与医药领域的包装与视觉设计<br>在美学与商业之间，寻找最精准的表达</p>
+      <p data-i18n="hero_desc">专注于医美与医药领域的包装与视觉设计<br>在美学与商业之间，寻找最精准的表达</p>
       <div class="hero-stats">
-        <div class="item"><div class="num" id="totalWorks">0</div><div class="lbl">作品</div></div>
-        <div class="item"><div class="num">3</div><div class="lbl">品类</div></div>
-        <div class="item"><div class="num">∞</div><div class="lbl">创意</div></div>
+        <div class="item"><div class="num" id="totalWorks">0</div><div class="lbl" data-i18n="stat_works">作品</div></div>
+        <div class="item"><div class="num">3</div><div class="lbl" data-i18n="stat_cat">品类</div></div>
+        <div class="item"><div class="num">∞</div><div class="lbl" data-i18n="stat_creative">创意</div></div>
       </div>
     </div>
   </div>
 </div>
 
 <section class="section" id="works">
-  <div class="section-label">Portfolio</div>
-  <h2 class="section-title">精选作品</h2>
-  <p class="section-desc">医美包装 · 医药包装 · 品牌海报</p>
+  <div class="section-label" data-i18n="section_portfolio">Portfolio</div>
+  <h2 class="section-title" data-i18n="works_title">精选作品</h2>
+  <p class="section-desc" data-i18n="works_desc">医美包装 · 医药包装 · 品牌海报</p>
   <div class="filter-bar" id="filterBar">
-    <button class="filter-btn active" data-filter="医美案例">医美案例</button>
-    <button class="filter-btn" data-filter="医药案例">医药案例</button>
-    <button class="filter-btn" data-filter="海报案例">海报案例</button>
+    <button class="filter-btn active" data-filter="医美案例" data-i18n="filter_ym">医美案例</button>
+    <button class="filter-btn" data-filter="医药案例" data-i18n="filter_ph">医药案例</button>
+    <button class="filter-btn" data-filter="海报案例" data-i18n="filter_ps">海报案例</button>
   </div>
   <div class="grid" id="grid"></div>
 </section>
 
 <section class="section" id="about">
-  <div class="section-label">About</div>
+  <div class="section-label" data-i18n="section_about">About</div>
   <h2 class="section-title">INTRIPS_</h2>
-  <p class="section-desc" style="max-width:560px">
+  <p class="section-desc" style="max-width:560px" data-i18n="about_text">
     6年包装设计经验，前国内Top 3印刷厂工艺设计师。<br>
     专注医美与医药领域的包装设计及品牌视觉，<br>
     用简约克制的美学语言，为产品赋予独特的质感与辨识度。
@@ -196,16 +166,16 @@ footer em{color:var(--purple);font-style:normal}
 </section>
 
 <section class="section" id="contact" style="text-align:center;padding-top:20px;padding-bottom:60px">
-  <div class="section-label">Contact</div>
-  <p style="color:var(--gray-600);font-size:14px;margin-bottom:8px">欢迎交流合作</p>
+  <div class="section-label" data-i18n="section_contact">Contact</div>
+  <p style="color:var(--gray-600);font-size:14px;margin-bottom:8px" data-i18n="contact_text">欢迎交流合作</p>
   <div class="contact-qr">
-    <div class="qr-item"><img src="qr-wechat.jpg" alt="微信"><div class="qr-label">微信</div></div>
-    <div class="qr-item"><img src="qr-xiaohongshu.jpg" alt="小红书"><div class="qr-label">小红书</div></div>
-    <div class="qr-item"><img src="qr-douyin.jpg" alt="抖音"><div class="qr-label">抖音</div></div>
+    <div class="qr-item"><img src="qr-wechat.jpg" alt="WeChat"><div class="qr-label" data-i18n="qr_wechat">微信</div></div>
+    <div class="qr-item"><img src="qr-xiaohongshu.jpg" alt="Xiaohongshu"><div class="qr-label" data-i18n="qr_xhs">小红书</div></div>
+    <div class="qr-item"><img src="qr-douyin.jpg" alt="Douyin"><div class="qr-label" data-i18n="qr_douyin">抖音</div></div>
   </div>
 </section>
 
-<footer><p>&copy; 2026 <em>INTRIPS_</em> · All rights reserved</p></footer>
+<footer><p>&copy; 2026 <em>INTRIPS_</em> <span data-i18n="footer_rights">· All rights reserved</span></p></footer>
 
 <div class="lightbox" id="lightbox">
   <button class="close" id="lbClose">✕</button>
@@ -214,79 +184,100 @@ footer em{color:var(--purple);font-style:normal}
 </div>
 
 <script>
-// Disable right-click & long-press save on images
-document.addEventListener('contextmenu',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
-document.addEventListener('touchstart',e=>{const t=e.target;if(t.tagName==='IMG'){e.preventDefault();e.stopPropagation()}},{passive:false});
+// ── Language Data ──
+const lang = {
+  en: {
+    nav_works: "Works", nav_about: "About", nav_contact: "Contact",
+    hero_sub: "Product & Packaging Portfolio",
+    hero_desc: "Packaging & visual design for medical aesthetics and pharmaceuticals<br>Where aesthetics meet commercial precision",
+    stat_works: "Works", stat_cat: "Categories", stat_creative: "Creative",
+    section_portfolio: "Portfolio", works_title: "Featured Works",
+    works_desc: "Medical Aesthetics · Pharmaceuticals · Brand Posters",
+    filter_ym: "Medical Cases", filter_ph: "Pharma Cases", filter_ps: "Posters",
+    section_about: "About", about_text: "6 years of packaging design experience.<br>Former structural designer at a Top 3 printing house in China.<br>Specializing in medical aesthetics and pharmaceutical packaging.",
+    section_contact: "Contact", contact_text: "Let's connect",
+    qr_wechat: "WeChat", qr_xhs: "Xiaohongshu", qr_douyin: "Douyin",
+    footer_rights: "· All rights reserved"
+  },
+  zh: {
+    nav_works: "Works", nav_about: "About", nav_contact: "Contact",
+    hero_sub: "Product & Packaging Portfolio",
+    hero_desc: "专注于医美与医药领域的包装与视觉设计<br>在美学与商业之间，寻找最精准的表达",
+    stat_works: "作品", stat_cat: "品类", stat_creative: "创意",
+    section_portfolio: "Portfolio", works_title: "精选作品",
+    works_desc: "医美包装 · 医药包装 · 品牌海报",
+    filter_ym: "医美案例", filter_ph: "医药案例", filter_ps: "海报案例",
+    section_about: "About", about_text: "6年包装设计经验，前国内Top 3印刷厂工艺设计师。<br>专注医美与医药领域的包装设计及品牌视觉，<br>用简约克制的美学语言，为产品赋予独特的质感与辨识度。",
+    section_contact: "Contact", contact_text: "欢迎交流合作",
+    qr_wechat: "微信", qr_xhs: "小红书", qr_douyin: "抖音",
+    footer_rights: "· 保留所有权利"
+  }
+};
 
+let currentLang = localStorage.getItem("lang") || "en";
+const btn = document.getElementById("langToggle");
+
+function applyLang(l) {
+  currentLang = l;
+  localStorage.setItem("lang", l);
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (lang[l] && lang[l][key]) {
+      el.innerHTML = lang[l][key];
+    }
+  });
+  btn.textContent = l === "en" ? "中" : "EN";
+  document.documentElement.lang = l === "en" ? "en" : "zh-CN";
+}
+
+btn.addEventListener("click", () => applyLang(currentLang === "en" ? "zh" : "en"));
+
+// ── Disable right-click & long-press on images ──
+document.addEventListener("contextmenu",e=>{if(e.target.tagName==="IMG")e.preventDefault()});
+document.addEventListener("touchstart",e=>{const t=e.target;if(t.tagName==="IMG"){e.preventDefault();e.stopPropagation()}},{passive:false});
+
+// ── Works Data ──
 const works = [
   ...Array.from({length:35},(_,i)=>i+2).map(i=>({folder:"医美案例",name:`医美案例 (${i}).jpg`})),
   {folder:"医美案例",name:"医美案例 (1).png"},
   ...Array.from({length:4},(_,i)=>i+1).map(i=>({folder:"医药案例",name:`医药案例 (${i}).jpg`})),
   ...Array.from({length:35},(_,i)=>i+1).map(i=>({folder:"海报案例",name:`海报案例 (${i}).jpg`})),
 ];
-// Filtered flat list for lightbox navigation
-let filteredWorks=[];let currentIdx=0;
 
-const grid=document.getElementById('grid');let currentFilter="医美案例";
+let filteredWorks=[];let currentIdx=0;
+const grid=document.getElementById("grid");let currentFilter="医美案例";
 function renderWorks(filter){
-  grid.innerHTML='';
+  grid.innerHTML="";
   filteredWorks=works.filter(w=>w.folder===filter);
   filteredWorks.forEach((w,i)=>{
-    const el=document.createElement('div');el.className='grid-item visible';
+    const el=document.createElement("div");el.className="grid-item visible";
     const p=`${w.folder}/${encodeURIComponent(w.name)}`;
-    el.innerHTML=`<img src="${p}" alt="${w.name}" loading="lazy"><div class="info"><div class="tag">${w.folder}</div><h3>${w.name.replace(/\.(jpg|png)$/,'')}</h3><div class="date">2026</div></div>`;
-    el.addEventListener('click',()=>openLightbox(i));grid.appendChild(el);
+    el.innerHTML=`<img src="${p}" alt="" loading="lazy"><div class="info"><div class="tag">${w.folder}</div><h3>${w.name.replace(/\.(jpg|png)$/,"")}</h3><div class="date">2026</div></div>`;
+    el.addEventListener("click",()=>openLightbox(i));grid.appendChild(el);
   });
 }
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');currentFilter=btn.dataset.filter;renderWorks(currentFilter);
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");currentFilter=btn.dataset.filter;renderWorks(currentFilter);
   });
 });
-const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCaption=document.getElementById('lbCaption');
-function openLightbox(idx){
-  currentIdx=idx;
-  const w=filteredWorks[idx];
-  const p=`${w.folder}/${encodeURIComponent(w.name)}`;
-  lb.classList.add('open');lbImg.src=p;lbCaption.textContent=w.name.replace(/\.(jpg|png)$/,'');
-  document.body.style.overflow='hidden'
-}
-function navLightbox(dir){
-  const n=filteredWorks.length;
-  currentIdx=((currentIdx+dir)%n+n)%n;
-  const w=filteredWorks[currentIdx];
-  lbImg.src=`${w.folder}/${encodeURIComponent(w.name)}`;
-  lbCaption.textContent=w.name.replace(/\.(jpg|png)$/,'')
-}
-document.getElementById('lbClose').addEventListener('click',()=>{lb.classList.remove('open');document.body.style.overflow=''});
-lb.addEventListener('click',e=>{
-  if(e.target===lb){
-    const rect=lb.getBoundingClientRect();
-    const x=e.clientX-rect.left;
-    if(x<rect.width*0.3)navLightbox(-1);
-    else if(x>rect.width*0.7)navLightbox(1);
-    else{lb.classList.remove('open');document.body.style.overflow=''}
-  }
-});
-// Touch swipe for lightbox
-let touchStartX=0;
-lb.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX},{passive:true});
-lb.addEventListener('touchend',e=>{
-  if(!lb.classList.contains('open'))return;
-  const dx=e.changedTouches[0].screenX-touchStartX;
-  if(Math.abs(dx)>50){navLightbox(dx>0?-1:1)}
-},{passive:true});
 
-document.addEventListener('keydown',e=>{
-  if(!lb.classList.contains('open'))return;
-  if(e.key==='Escape'){lb.classList.remove('open');document.body.style.overflow=''}
-  if(e.key==='ArrowLeft')navLightbox(-1);
-  if(e.key==='ArrowRight')navLightbox(1)
-});
-window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>50)});
-document.getElementById('totalWorks').textContent=works.length;
+const lb=document.getElementById("lightbox"),lbImg=document.getElementById("lbImg"),lbCaption=document.getElementById("lbCaption");
+function openLightbox(idx){currentIdx=idx;const w=filteredWorks[idx];lbImg.src=`${w.folder}/${encodeURIComponent(w.name)}`;lbCaption.textContent=w.name.replace(/\.(jpg|png)$/,"");lb.classList.add("open");document.body.style.overflow="hidden"}
+function navLightbox(dir){const n=filteredWorks.length;currentIdx=((currentIdx+dir)%n+n)%n;const w=filteredWorks[currentIdx];lbImg.src=`${w.folder}/${encodeURIComponent(w.name)}`;lbCaption.textContent=w.name.replace(/\.(jpg|png)$/,"")}
+document.getElementById("lbClose").addEventListener("click",()=>{lb.classList.remove("open");document.body.style.overflow=""});
+lb.addEventListener("click",e=>{if(e.target===lb){const r=lb.getBoundingClientRect(),x=e.clientX-r.left;if(x<r.width*0.3)navLightbox(-1);else if(x>r.width*0.7)navLightbox(1);else{lb.classList.remove("open");document.body.style.overflow=""}}});
+let touchStartX=0;
+lb.addEventListener("touchstart",e=>{touchStartX=e.changedTouches[0].screenX},{passive:true});
+lb.addEventListener("touchend",e=>{if(!lb.classList.contains("open"))return;const dx=e.changedTouches[0].screenX-touchStartX;if(Math.abs(dx)>50)navLightbox(dx>0?-1:1)},{passive:true});
+document.addEventListener("keydown",e=>{if(!lb.classList.contains("open"))return;if(e.key==="Escape"){lb.classList.remove("open");document.body.style.overflow=""}if(e.key==="ArrowLeft")navLightbox(-1);if(e.key==="ArrowRight")navLightbox(1)});
+window.addEventListener("scroll",()=>{document.getElementById("header").classList.toggle("scrolled",window.scrollY>50)});
+document.getElementById("totalWorks").textContent=works.length;
 renderWorks("医美案例");
+
+// ── Apply saved language on load ──
+applyLang(currentLang);
 </script>
 </body>
 </html>
