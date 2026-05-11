@@ -27,9 +27,11 @@ body{
 }
 header{
   position:fixed;top:0;left:0;right:0;z-index:1000;
-  padding:24px 48px;display:flex;justify-content:space-between;align-items:center;
-  transition:var(--transition);background:transparent
+  padding:18px 48px;display:flex;justify-content:space-between;align-items:center;
+  transition:var(--transition);
+  background:linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.25) 70%,transparent 100%)
 }
+header.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);padding:14px 48px;box-shadow:0 1px 0 var(--gray-100)}
 header.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);padding:14px 48px;box-shadow:0 1px 0 var(--gray-100)}
 .logo{font-size:22px;font-weight:700;letter-spacing:3px;color:var(--white);text-decoration:none;text-shadow:0 2px 12px rgba(0,0,0,0.3)}
 .logo span{color:var(--purple-light)}
