@@ -16,11 +16,9 @@ body{
   --purple-light:#A78BFA;
   --purple-dark:#5B21B6;
   --black:#1A1A1A;
-  --gray-900:#2D2D2D;
   --gray-600:#6B6B6B;
   --gray-300:#B8B8B8;
   --gray-100:#E8E8E8;
-  --gray-50:#F5F5F5;
   --white:#FFFFFF;
   --shadow:0 4px 24px rgba(0,0,0,0.04);
   --shadow-hover:0 12px 48px rgba(0,0,0,0.08);
@@ -43,85 +41,42 @@ nav a{
   color:rgba(255,255,255,0.7);text-decoration:none;transition:var(--transition);
   position:relative;padding-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,0.2)
 }
-nav a::after{
-  content:'';position:absolute;bottom:0;left:0;
-  width:0;height:2px;background:var(--purple-light);transition:var(--transition)
-}
+nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--purple-light);transition:var(--transition)}
 header.scrolled nav a{color:var(--gray-600);text-shadow:none}
 header.scrolled nav a::after{background:var(--purple)}
 nav a:hover{color:var(--white)}
 header.scrolled nav a:hover{color:var(--black)}
 nav a:hover::after{width:100%}
 
-/* ── Hero ── */
-.hero-wrap{
-  position:relative;min-height:100vh;overflow:hidden
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:url('bg-hero.jpg') center center / contain no-repeat;
-  background-color:#000
-}
-.hero-bg::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.1) 40%,transparent 60%)
-}
-.hero{
-  position:relative;z-index:1;
-  min-height:100vh;display:flex;align-items:center;
-  padding:140px 0 100px;text-align:right
-}
-.hero-content{max-width:520px;margin-left:5%}
-.hero-sub{
-  font-size:12px;letter-spacing:4px;text-transform:uppercase;
-  color:var(--purple-light);margin-bottom:20px;font-weight:500
-}
-.hero h1{
-  font-size:clamp(48px,7vw,80px);font-weight:300;line-height:1.05;
-  color:var(--white);margin-bottom:20px;text-shadow:0 4px 24px rgba(0,0,0,0.3);letter-spacing:-0.02em
-}
+.hero-wrap{position:relative;min-height:100vh;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('bg-hero.jpg') center center / cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.15) 35%,transparent 60%)}
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;padding:140px 0 100px;text-align:left}
+.hero-content{max-width:520px;padding-left:6%}
+.hero-sub{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--purple-light);margin-bottom:20px;font-weight:500}
+.hero h1{font-size:clamp(48px,7vw,80px);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:20px;text-shadow:0 4px 24px rgba(0,0,0,0.3);letter-spacing:-0.02em}
 .hero h1 strong{font-weight:700;color:var(--white)}
-.hero p{font-size:16px;color:rgba(255,255,255,0.6);max-width:420px;line-height:1.7;margin:0 0 0 auto}
-.hero-stats{display:flex;gap:36px;justify-content:flex-end}
+.hero p{font-size:16px;color:rgba(255,255,255,0.6);max-width:420px;line-height:1.7;margin:0}
+.hero-stats{display:flex;gap:36px;justify-content:flex-start}
 .hero-stats .item{text-align:center}
 .hero-stats .num{font-size:28px;font-weight:700;color:var(--white)}
 .hero-stats .lbl{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:2px;margin-top:4px}
 
-/* ── Section ── */
 .section{padding:100px 48px;max-width:1400px;margin:0 auto}
 .section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--purple);margin-bottom:8px;font-weight:600}
 .section-title{font-size:32px;font-weight:500;color:var(--black);margin-bottom:8px}
 .section-desc{font-size:15px;color:var(--gray-600);max-width:480px;margin-bottom:40px;line-height:1.8}
 
-/* ── Filter ── */
 .filter-bar{display:flex;gap:8px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--gray-100)}
-.filter-btn{
-  padding:10px 28px;border-radius:100px;
-  border:1px solid var(--gray-100);background:var(--white);
-  font-size:13px;color:var(--gray-600);cursor:pointer;
-  transition:var(--transition);font-family:inherit;font-weight:500
-}
+.filter-btn{padding:10px 28px;border-radius:100px;border:1px solid var(--gray-100);background:var(--white);font-size:13px;color:var(--gray-600);cursor:pointer;transition:var(--transition);font-family:inherit;font-weight:500}
 .filter-btn:hover{border-color:var(--purple-light);color:var(--purple)}
 .filter-btn.active{background:var(--purple);border-color:var(--purple);color:var(--white)}
 
-/* ── Grid ── */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:20px
-}
-.grid-item{
-  position:relative;border-radius:var(--radius);overflow:hidden;
-  background:var(--white);box-shadow:var(--shadow);
-  transition:var(--transition);cursor:pointer;
-  opacity:0;transform:translateY(24px)
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.grid-item{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--white);box-shadow:var(--shadow);transition:var(--transition);cursor:pointer;opacity:0;transform:translateY(24px)}
 .grid-item.visible{opacity:1;transform:translateY(0)}
 .grid-item:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px)}
-.grid-item img{
-  width:100%;height:260px;object-fit:cover;
-  display:block;transition:var(--transition)
-}
+.grid-item img{width:100%;height:260px;object-fit:cover;display:block;transition:var(--transition)}
 .grid-item:hover img{transform:scale(1.03)}
 .grid-item .info{padding:18px 20px 20px}
 .grid-item .info .tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:4px;font-weight:600}
@@ -129,29 +84,21 @@ nav a:hover::after{width:100%}
 .grid-item .info .date{font-size:12px;color:var(--gray-300)}
 .grid-item.hidden{display:none}
 
-/* ── Lightbox ── */
-.lightbox{
-  position:fixed;top:0;left:0;right:0;bottom:0;
-  z-index:2000;background:rgba(0,0,0,0.88);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;transition:var(--transition);
-  backdrop-filter:blur(24px)
-}
+/* Contact */
+.contact-qr{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.qr-item{text-align:center;width:140px}
+.qr-item img{width:120px;height:120px;border-radius:12px;object-fit:cover;border:1px solid var(--gray-100);padding:8px;background:var(--white);transition:var(--transition)}
+.qr-item img:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.qr-item .qr-label{font-size:12px;color:var(--gray-600);margin-top:8px}
+
+.lightbox{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:var(--transition);backdrop-filter:blur(24px)}
 .lightbox.open{opacity:1;pointer-events:auto}
 .lightbox img{max-width:90vw;max-height:85vh;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,0.5);transform:scale(0.92);transition:var(--transition)}
 .lightbox.open img{transform:scale(1)}
-.lightbox .close{
-  position:absolute;top:24px;right:32px;
-  background:none;border:none;color:#fff;
-  font-size:28px;cursor:pointer;opacity:0.5;transition:var(--transition)
-}
+.lightbox .close{position:absolute;top:24px;right:32px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;opacity:0.5;transition:var(--transition)}
 .lightbox .close:hover{opacity:1}
-.lightbox .caption{
-  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
-  color:rgba(255,255,255,0.6);font-size:13px;text-align:center
-}
+.lightbox .caption{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:13px;text-align:center}
 
-/* ── Footer ── */
 footer{text-align:center;padding:48px;border-top:1px solid var(--gray-100);color:var(--gray-300);font-size:13px}
 footer em{color:var(--purple);font-style:normal}
 
@@ -161,13 +108,14 @@ footer em{color:var(--purple);font-style:normal}
   nav{gap:16px;flex-wrap:wrap;justify-content:center}
   nav a{font-size:11px}
   .hero{padding:120px 20px 80px;min-height:auto}
-  .hero-content{margin-left:0;padding:0 20px;text-align:center}
-  .hero p{margin:0 auto}
-  .hero-stats{justify-content:center}
+  .hero-content{padding-left:0;max-width:100%}
   .hero h1{font-size:36px}
-  .hero-stats{gap:24px;flex-wrap:wrap}
+  .hero-stats{justify-content:center;flex-wrap:wrap}
   .section{padding:60px 20px}
   .grid{grid-template-columns:1fr}
+  .contact-qr{gap:16px}
+  .qr-item{width:100px}
+  .qr-item img{width:90px;height:90px}
 }
 </style>
 </head>
@@ -175,14 +123,9 @@ footer em{color:var(--purple);font-style:normal}
 
 <header id="header">
   <a href="#" class="logo">INTRIPS<span>_</span></a>
-  <nav>
-    <a href="#works">Works</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <nav><a href="#works">Works</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
 </header>
 
-<!-- Hero with blurred bg -->
 <div class="hero-wrap">
   <div class="hero-bg"></div>
   <div class="hero">
@@ -199,40 +142,39 @@ footer em{color:var(--purple);font-style:normal}
   </div>
 </div>
 
-<!-- Works -->
 <section class="section" id="works">
   <div class="section-label">Portfolio</div>
   <h2 class="section-title">精选作品</h2>
   <p class="section-desc">医美包装 · 医药包装 · 品牌海报，三个方向</p>
-
   <div class="filter-bar" id="filterBar">
     <button class="filter-btn active" data-filter="医美案例">医美案例</button>
     <button class="filter-btn" data-filter="医药案例">医药案例</button>
     <button class="filter-btn" data-filter="海报案例">海报案例</button>
   </div>
-
   <div class="grid" id="grid"></div>
 </section>
 
-<!-- About -->
 <section class="section" id="about" style="padding-top:40px">
   <div class="section-label">About</div>
   <h2 class="section-title">INTRIPS_</h2>
   <p class="section-desc" style="max-width:560px">
-    6年包装设计经验，前国内Top 3印刷厂工艺设计师。
-    专注医美与医药领域的包装设计及品牌视觉，
+    6年包装设计经验，前国内Top 3印刷厂工艺设计师。<br>
+    专注医美与医药领域的包装设计及品牌视觉，<br>
     用简约克制的美学语言，为产品赋予独特的质感与辨识度。
   </p>
 </section>
 
 <section class="section" id="contact" style="text-align:center;padding-top:20px;padding-bottom:60px">
   <div class="section-label">Contact</div>
-  <p style="color:var(--gray-600);font-size:14px">intrips_ · WeChat · Behance</p>
+  <p style="color:var(--gray-600);font-size:14px;margin-bottom:8px">欢迎交流合作</p>
+  <div class="contact-qr">
+    <div class="qr-item"><img src="qr-wechat.jpg" alt="微信"><div class="qr-label">微信</div></div>
+    <div class="qr-item"><img src="qr-xiaohongshu.jpg" alt="小红书"><div class="qr-label">小红书</div></div>
+    <div class="qr-item"><img src="qr-douyin.jpg" alt="抖音"><div class="qr-label">抖音</div></div>
+  </div>
 </section>
 
-<footer>
-  <p>&copy; 2026 <em>INTRIPS_</em> · All rights reserved</p>
-</footer>
+<footer><p>&copy; 2026 <em>INTRIPS_</em> · All rights reserved</p></footer>
 
 <div class="lightbox" id="lightbox">
   <button class="close" id="lbClose">✕</button>
@@ -242,52 +184,34 @@ footer em{color:var(--purple);font-style:normal}
 
 <script>
 const works = [
-  ...Array.from({length:24},(_,i)=>i+1).map(i=>({folder:"医美案例",name:`医美案例 (${i}).jpg`})),
+  ...Array.from({length:35},(_,i)=>i+1).map(i=>({folder:"医美案例",name:`医美案例 (${i}).jpg`})),
   {folder:"医美案例",name:"医美案例 (1).png"},
   ...Array.from({length:4},(_,i)=>i+1).map(i=>({folder:"医药案例",name:`医药案例 (${i}).jpg`})),
   ...Array.from({length:35},(_,i)=>i+1).map(i=>({folder:"海报案例",name:`海报案例 (${i}).jpg`})),
 ];
 
-const grid=document.getElementById('grid');
-let currentFilter="医美案例";
-
+const grid=document.getElementById('grid');let currentFilter="医美案例";
 function renderWorks(filter){
   grid.innerHTML='';
-  const filtered=works.filter(w=>w.folder===filter);
-  filtered.forEach(w=>{
-    const el=document.createElement('div');
-    el.className='grid-item visible';
-    const path=`${w.folder}/${encodeURIComponent(w.name)}`;
-    el.innerHTML=`<img src="${path}" alt="${w.name}" loading="lazy">
-      <div class="info"><div class="tag">${w.folder}</div>
-      <h3>${w.name.replace(/\.(jpg|png)$/,'')}</h3>
-      <div class="date">2026</div></div>`;
-    el.addEventListener('click',()=>openLightbox(path,w.name));
-    grid.appendChild(el);
+  works.filter(w=>w.folder===filter).forEach(w=>{
+    const el=document.createElement('div');el.className='grid-item visible';
+    const p=`${w.folder}/${encodeURIComponent(w.name)}`;
+    el.innerHTML=`<img src="${p}" alt="${w.name}" loading="lazy"><div class="info"><div class="tag">${w.folder}</div><h3>${w.name.replace(/\.(jpg|png)$/,'')}</h3><div class="date">2026</div></div>`;
+    el.addEventListener('click',()=>openLightbox(p,w.name));grid.appendChild(el);
   });
 }
-
 document.querySelectorAll('.filter-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter=btn.dataset.filter;
-    renderWorks(currentFilter);
+    btn.classList.add('active');currentFilter=btn.dataset.filter;renderWorks(currentFilter);
   });
 });
-
-const lb=document.getElementById('lightbox');
-const lbImg=document.getElementById('lbImg');
-const lbCaption=document.getElementById('lbCaption');
-function openLightbox(path,title){lb.classList.add('open');lbImg.src=path;lbCaption.textContent=title;document.body.style.overflow='hidden'}
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCaption=document.getElementById('lbCaption');
+function openLightbox(p,t){lb.classList.add('open');lbImg.src=p;lbCaption.textContent=t;document.body.style.overflow='hidden'}
 document.getElementById('lbClose').addEventListener('click',()=>{lb.classList.remove('open');document.body.style.overflow=''});
 lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('open');document.body.style.overflow=''}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){lb.classList.remove('open');document.body.style.overflow=''}});
-
-window.addEventListener('scroll',()=>{
-  document.getElementById('header').classList.toggle('scrolled',window.scrollY>50);
-});
-
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>50)});
 document.getElementById('totalWorks').textContent=works.length;
 renderWorks("医美案例");
 </script>
