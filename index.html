@@ -183,6 +183,9 @@ footer em{color:var(--purple);font-style:normal}
 </div>
 
 <script>
+// Disable right-click on images to prevent saving
+document.addEventListener('contextmenu',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
+
 const works = [
   ...Array.from({length:35},(_,i)=>i+2).map(i=>({folder:"医美案例",name:`医美案例 (${i}).jpg`})),
   {folder:"医美案例",name:"医美案例 (1).png"},
