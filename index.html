@@ -54,6 +54,8 @@ header.scrolled nav a:hover{color:var(--black)}
 nav a:hover::after{width:100%}
 
 .hero-wrap{position:relative;min-height:100vh;overflow:hidden}
+img{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;pointer-events:auto}
+.lightbox img{pointer-events:none}
 .hero-bg{position:absolute;inset:0;background:url('bg-hero.jpg') center center / cover no-repeat}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.15) 35%,transparent 60%)}
 .hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;padding:140px 0 100px;text-align:left}
@@ -203,8 +205,9 @@ footer em{color:var(--purple);font-style:normal}
 </div>
 
 <script>
-// Disable right-click on images to prevent saving
+// Disable right-click & long-press save on images
 document.addEventListener('contextmenu',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
+document.addEventListener('touchstart',e=>{const t=e.target;if(t.tagName==='IMG'){e.preventDefault();e.stopPropagation()}},{passive:false});
 
 const works = [
   ...Array.from({length:35},(_,i)=>i+2).map(i=>({folder:"医美案例",name:`医美案例 (${i}).jpg`})),
@@ -257,6 +260,15 @@ lb.addEventListener('click',e=>{
     else{lb.classList.remove('open');document.body.style.overflow=''}
   }
 });
+// Touch swipe for lightbox
+let touchStartX=0;
+lb.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX},{passive:true});
+lb.addEventListener('touchend',e=>{
+  if(!lb.classList.contains('open'))return;
+  const dx=e.changedTouches[0].screenX-touchStartX;
+  if(Math.abs(dx)>50){navLightbox(dx>0?-1:1)}
+},{passive:true});
+
 document.addEventListener('keydown',e=>{
   if(!lb.classList.contains('open'))return;
   if(e.key==='Escape'){lb.classList.remove('open');document.body.style.overflow=''}
