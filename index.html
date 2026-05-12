@@ -20,15 +20,15 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 48px;displa
 header.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);padding:14px 48px;box-shadow:0 1px 0 var(--gray-100)}
 .logo{font-size:22px;font-weight:700;letter-spacing:3px;color:var(--white);text-decoration:none;text-shadow:0 2px 12px rgba(0,0,0,0.3)}
 .logo span{color:var(--purple-light)}
-header.scrolled .logo{color:var(--white);text-shadow:0 2px 12px rgba(0,0,0,0.3)}
-header.scrolled .logo span{color:var(--purple-light)}
+header.scrolled .logo{color:var(--black);text-shadow:none}
+header.scrolled .logo span{color:var(--purple)}
 nav{display:flex;gap:36px;align-items:center}
 nav a{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;transition:var(--transition);position:relative;padding-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,0.2)}
 nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--purple-light);transition:var(--transition)}
-header.scrolled nav a{color:var(--white);text-shadow:none}
+header.scrolled nav a{color:var(--gray-600);text-shadow:none}
 header.scrolled nav a::after{background:var(--purple)}
 nav a:hover{color:var(--white)}
-header.scrolled nav a:hover{color:var(--white)}
+header.scrolled nav a:hover{color:var(--black)}
 nav a:hover::after{width:100%}
 .lang-toggle{font-size:11px;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);padding:5px 14px;border-radius:20px;cursor:pointer;transition:var(--transition);font-family:inherit;text-shadow:0 1px 4px rgba(0,0,0,0.2)}
 .lang-toggle:hover{background:rgba(255,255,255,0.25);color:var(--white)}
