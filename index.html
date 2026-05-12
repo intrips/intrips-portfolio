@@ -82,6 +82,13 @@ img{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;pointer
 .lightbox .caption{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:13px;text-align:center}
 footer{text-align:center;padding:48px;border-top:1px solid var(--gray-100);color:var(--gray-300);font-size:13px}
 footer em{color:var(--purple);font-style:normal}
+#pagination{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:32px;flex-wrap:wrap}
+.page-btn{padding:8px 16px;border-radius:8px;border:1px solid var(--gray-100);background:var(--white);color:var(--gray-600);cursor:pointer;font-size:13px;font-family:inherit;transition:all 0.3s}
+.page-btn:not([disabled]):hover{border-color:var(--purple-light);color:var(--purple)}
+.page-btn[disabled]{opacity:0.4;cursor:default}
+.page-btn.active{border-color:var(--purple);background:var(--purple);color:var(--white);font-weight:600}
+#pagination .page-info{font-size:12px;color:var(--gray-300);margin-left:8px}
+#pagination .dots{color:var(--gray-300);padding:0 4px}
 @media(max-width:768px){
   header{padding:14px 20px;flex-direction:row;gap:8px}
   header.scrolled{padding:10px 20px}
@@ -112,6 +119,14 @@ footer em{color:var(--purple);font-style:normal}
   .qr-item img{width:110px;height:110px;padding:6px}
   .qr-item .qr-label{font-size:12px}
   footer{padding:32px 20px;font-size:12px}
+  #pagination{gap:6px;margin-top:24px}
+  .page-btn{padding:6px 12px;font-size:12px;min-width:36px;text-align:center}
+  #pagination .page-info{font-size:11px;margin-left:4px;width:100%;text-align:center;margin-top:4px}
+}
+@media(max-width:480px){
+  .page-btn{padding:5px 10px;font-size:11px;min-width:32px}
+  #pagination{gap:4px}
+  .page-btn.prev-next{padding:5px 10px}
 }
 </style>
 </head>
@@ -273,28 +288,27 @@ function updatePagination(total, current, filter){
   let pg = document.getElementById("pagination");
   if (!pg) {
     pg = document.createElement("div");pg.id="pagination";
-    pg.style.cssText="display:flex;justify-content:center;align-items:center;gap:8px;margin-top:32px;flex-wrap:wrap";
     grid.parentNode.appendChild(pg);
   }
   let html = "";
   // Prev button
-  html += `<button class="page-btn" data-page="${current-1}" ${current<=1?'disabled':''} style="padding:8px 16px;border-radius:8px;border:1px solid var(--gray-100);background:var(--white);color:var(--gray-600);cursor:pointer;font-size:13px;font-family:inherit;transition:all 0.3s;${current<=1?'opacity:0.4;cursor:default':''}">‹ 上一页</button>`;
+  html += `<button class="page-btn prev-next" data-page="${current-1}" ${current<=1?'disabled':''}>‹ 上一页</button>`;
   // Page numbers
   for (let i = 1; i <= total; i++) {
-    if (total > 10) {
-      if (i === 1 || i === total || (i >= current-2 && i <= current+2)) {
-        html += `<button class="page-btn" data-page="${i}" style="padding:8px 14px;border-radius:8px;border:1px solid ${i===current?'var(--purple)':'var(--gray-100)'};background:${i===current?'var(--purple)':'var(--white)'};color:${i===current?'var(--white)':'var(--gray-600)'};cursor:pointer;font-size:13px;font-family:inherit;font-weight:${i===current?'600':'400'};transition:all 0.3s">${i}</button>`;
-      } else if (i === current-3 || i === current+3) {
-        html += `<span style="color:var(--gray-300);padding:0 4px">…</span>`;
+    if (total > 7) {
+      if (i === 1 || i === total || (i >= current-1 && i <= current+1)) {
+        html += `<button class="page-btn${i===current?' active':''}" data-page="${i}">${i}</button>`;
+      } else if (i === current-2 || i === current+2) {
+        html += `<span class="dots">…</span>`;
       }
     } else {
-      html += `<button class="page-btn" data-page="${i}" style="padding:8px 14px;border-radius:8px;border:1px solid ${i===current?'var(--purple)':'var(--gray-100)'};background:${i===current?'var(--purple)':'var(--white)'};color:${i===current?'var(--white)':'var(--gray-600)'};cursor:pointer;font-size:13px;font-family:inherit;font-weight:${i===current?'600':'400'};transition:all 0.3s">${i}</button>`;
+      html += `<button class="page-btn${i===current?' active':''}" data-page="${i}">${i}</button>`;
     }
   }
   // Next button
-  html += `<button class="page-btn" data-page="${current+1}" ${current>=total?'disabled':''} style="padding:8px 16px;border-radius:8px;border:1px solid var(--gray-100);background:var(--white);color:var(--gray-600);cursor:pointer;font-size:13px;font-family:inherit;transition:all 0.3s;${current>=total?'opacity:0.4;cursor:default':''}">下一页 ›</button>`;
+  html += `<button class="page-btn prev-next" data-page="${current+1}" ${current>=total?'disabled':''}>下一页 ›</button>`;
   // Total info
-  html += `<span style="font-size:12px;color:var(--gray-300);margin-left:8px">${filteredWorks.length} 张，共 ${total} 页</span>`;
+  html += `<span class="page-info">${filteredWorks.length} 张，共 ${total} 页</span>`;
   pg.innerHTML = html;
   // Bind click events
   pg.querySelectorAll(".page-btn:not([disabled])").forEach(btn => {
