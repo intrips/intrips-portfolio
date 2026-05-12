@@ -253,8 +253,8 @@ document.addEventListener("touchstart",e=>{const t=e.target;if(t.tagName==="IMG"
 
 // ── Works Data ──
 const works = [
-  ...Array.from({length:35},(_,i)=>i+2).map(i=>({folder:"医美案例",name:`医美案例 (${i}).jpg`})),
   {folder:"医美案例",name:"医美案例 (1).png"},
+  ...Array.from({length:35},(_,i)=>i+2).map(i=>({folder:"医美案例",name:`医美案例 (${i}).jpg`})),
   ...Array.from({length:4},(_,i)=>i+1).map(i=>({folder:"医药案例",name:`医药案例 (${i}).jpg`})),
   ...Array.from({length:35},(_,i)=>i+1).map(i=>({folder:"海报案例",name:`海报案例 (${i}).jpg`})),
 ];
